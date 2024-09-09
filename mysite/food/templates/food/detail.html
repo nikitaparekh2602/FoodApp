@@ -1,0 +1,35 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ratio ratio-4x3"> <!-- Set a specific aspect ratio for the image container -->
+                <img src="{{ item.item_image }}" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <!-- function based  
+            <h1>{{ item.item_name }}</h1>
+            <h2>{{ item.item_desc }}</h2>
+            <h3>${{ item.item_price }}</h3>
+            -->
+
+            <!-- class based changes -->
+            <h1>{{ object.item_name }}</h1>
+            <h2>{{ object.item_desc }}</h2>
+            <h3>${{ object.item_price }}</h3>
+
+            <!-- Delete Button -->
+            <!-- <form method="post" action="{% url 'delete_item' item.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form> -->
+            <a href="{% url 'delete_item' item.id %}">Delete</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
